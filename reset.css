@@ -1,147 +1,204 @@
-/* RESETCSS minireset.css v0.0.1 | MIT License -  GETSoftware Co. | https://github.com/GETSoftwareCo/ResetCSS/reset.css */
- 
-/* Reset all elements to have a consistent box model */
-* {
+/* 
+ * RESETCSS v0.0.1 
+ * A modern, global CSS reset and starter kit.
+ * Copyright (c) 2024 GETSoftware Co.
+ * Licensed under MIT (https://github.com/GETSoftwareCo/ResetCSS)
+ */
+
+/* ==========================================================================
+   1. CSS Variables (Theming)
+   ========================================================================== */
+   :root {
+    /* Color System - Prefixed to avoid conflicts */
+    --reset-bg: #f9f9f9;
+    --reset-text: #333333;
+    --reset-primary: #007bff;
+    --reset-primary-hover: #0056b3;
+    --reset-border: #cccccc;
+    
+    /* Typography */
+    --reset-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --reset-mono-font: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    
+    /* Layering (Z-Index) */
+    --z-index-back: -1;
+    --z-index-base: 0;
+    --z-index-modal: 1000;
+}
+
+/* ==========================================================================
+   2. Global Reset & Box Model
+   ========================================================================== */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Z-index for layering */
-:root {
-    --color-background: #f9f9f9; /* Background color */
-    --color-text: #333; /* Default text color */
-    --color-link: #007bff; /* Default link color */
-    --color-link-hover: #0056b3; /* Hover link color */
-    --color-button: #007bff; /* Default button color */
-    --color-button-hover: #0056b3; /* Hover button color */
-    --z-index-background: -1; /* Background layer */
-    --z-index-default: 0; /* Default layer */
-    --z-index-modal: 1000; /* Modal layer */
+/* ==========================================================================
+   3. Document Setup
+   ========================================================================== */
+html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape mode on iOS */
+    tab-size: 4; /* Standardize tab size */
 }
 
-/* Support for HTML5 elements */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
-
-/* Basic body styles */
 body {
-    line-height: 1.5; /* Set line height for better readability */
-    font-family: Arial, sans-serif; /* Set default font */
-    -webkit-font-smoothing: antialiased; /* Improve font rendering in WebKit browsers */
-    -moz-osx-font-smoothing: grayscale; /* Improve font rendering in Firefox on macOS */
-    background-color: #f9f9f9; /* Soft background color */
-    color: #333; /* Default text color */
+    line-height: 1.6; /* Improved readability */
+    font-family: var(--reset-font-family);
+    -webkit-font-smoothing: antialiased; /* Crisp text on WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Crisp text on macOS Firefox */
+    background-color: var(--reset-bg);
+    color: var(--reset-text);
 }
 
-/* Link styles */
-a {
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherit color from parent */
-    transition: color 0.3s ease; /* Smooth color transition */
-}
-
-a:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #007bff; /* Custom hover color */
-}
-
-/* Image styles */
-img {
-    max-width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent bottom spacing */
-}
-
-/* Form element styles */
-input, button, textarea, select {
-    font-family: inherit; /* Inherit font from body */
-    font-size: inherit; /* Inherit font size from body */
-    margin: 0; /* Reset default margin */
-    border: 1px solid #ccc; /* Add a subtle border */
-    border-radius: 4px; /* Rounded corners for inputs */
-    padding: 8px; /* Add padding for comfort */
+/* ==========================================================================
+   4. HTML5 Elements & Layout
+   ========================================================================== */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
 }
 
 /* List styles */
 ul, ol {
-    list-style: none; /* Remove default list bullets */
+    list-style: none;
 }
 
 /* Table styles */
 table {
-    border-collapse: collapse; /* Merge table borders */
-    width: 100%; /* Set table to full width */
-    margin: 16px 0; /* Add margin for separation */
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
 }
 
-/* Audio and video element styles */
+/* ==========================================================================
+   5. Typography & Links
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--reset-primary); /* Use variable */
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--reset-primary-hover);
+}
+
+/* Code blocks */
+code, kbd, samp, pre {
+    font-family: var(--reset-mono-font);
+    font-size: 1em;
+}
+
+/* ==========================================================================
+   6. Media Elements (Images, Videos)
+   ========================================================================== */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 audio, video {
-    display: inline-block; /* Ensure they are inline-block */
+    display: inline-block;
 }
 
-
-
-/* Reset default height for form elements */
-button, input, select, textarea {
-    height: auto; /* Reset height */
+/* ==========================================================================
+   7. Forms & Interactive Elements
+   ========================================================================== */
+input, button, textarea, select {
+    font: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5em 0.75em;
+    border: 1px solid var(--reset-border);
+    border-radius: 4px;
+    vertical-align: middle;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    /* Responsive form styles */
-    input, button, textarea, select {
-        padding: 6px; /* Adjust padding for smaller screens */
-    }
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
 }
 
-/* Accessibility improvements */
+/* Button specific styles */
 button {
-    cursor: pointer; /* Change cursor for buttons */
-    background-color: var(--color-button); /* Default button color */
-    color: #fff; /* Button text color */
-    border: none; /* Remove default border */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+    cursor: pointer;
+    background-color: var(--reset-primary);
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-    background-color: var(--color-button-hover); /* Darker button color on hover */
+    background-color: var(--reset-primary-hover);
 }
 
-/* Focus styles for accessibility */
-a:focus, button:focus {
-    outline: 2px dashed var(--color-link);
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   8. Accessibility (Focus States)
+   ========================================================================== */
+:focus {
+    outline: 2px dashed var(--reset-primary);
+    outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users if supported, keep for keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--reset-primary);
     outline-offset: 2px;
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: var(--color-link);
-    outline: none; /* Remove default outline */
+    border-color: var(--reset-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); /* Subtle focus ring */
 }
 
-/* Utility classes */
-.text-center {
-    text-align: center; /* Center text */
+/* ==========================================================================
+   9. Utility Classes
+   ========================================================================== */
+.text-center { text-align: center; }
+
+/* Accessible hiding */
+.hidden, [hidden] {
+    display: none !important;
 }
 
-.hidden {
-    display: none; /* Hide elements */
-}
+.m-0 { margin: 0 !important; }
+.p-1 { padding: 0.25rem !important; }
+.p-2 { padding: 0.5rem !important; }
 
-/* Utility classes for margin and padding */
-.m-0 {
-    margin: 0;
-}
+/* ==========================================================================
+   10. Responsive Base
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Better readability on mobile */
+    }
 
-.p-1 {
-    padding: 0.25rem;
-}
-
-.p-2 {
-    padding: 0.5rem;
+    input, button, textarea, select {
+        padding: 0.6em; /* Larger touch targets */
+    }
 }
