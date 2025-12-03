@@ -1,5 +1,5 @@
 {
-  "name": "resetcss",
+  "name": "@getsoftwareco/resetcss",
   "version": "0.0.1",
   "description": "Global Modern CSS reset and base styles by GETSoftware Co.",
   "main": "reset.css",
