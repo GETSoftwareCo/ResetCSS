@@ -1,18 +1,31 @@
 {
   "name": "resetcss",
   "version": "0.0.1",
-  "description": "Global Modern  CSS reset with GETSoftware Co.",
-  "main": "index.js",
+  "description": "Global Modern CSS reset and base styles by GETSoftware Co.",
+  "main": "reset.css",
+  "style": "reset.css",
+  "files": [
+    "reset.css",
+    "reset.min.css"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "css",
-    "sass",
     "reset",
-    "mini"
+    "normalize",
+    "base",
+    "starter"
   ],
-  "author": "GETSoftware Co. (https://getsoftwarecompany.com/",
-  "license": "MIT"
-   
+  "author": "GETSoftware Co. <info@getsoft.com.tr> (https://getsoft.com.tr)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GETSoftwareCo/ResetCSS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GETSoftwareCo/ResetCSS/issues"
+  },
+  "homepage": "https://github.com/GETSoftwareCo/ResetCSS#readme"
 }
